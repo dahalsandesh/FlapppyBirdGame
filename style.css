@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #092913d8;
+    font-family: Arial, sans-serif;
+    overflow: hidden;  /* Prevent scrolling */
+}
+
+.container {
+    text-align: center;
+}
+
+.title {
+    font-size: 3em;
+    color: goldenrod;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1em;
+    color: gold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+canvas {
+    border: 2px solid #000;
+}
+
+@media (orientation: portrait) {
+    canvas {
+        width: 90vw;
+        height: auto;
+        max-height: 70vh; 
+    }
+}
+
+@media (orientation: landscape) {
+    canvas {
+        width: 70vw; 
+        height: auto;
+        max-height: 70vh;  
+    }
+}
