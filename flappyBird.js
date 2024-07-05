@@ -17,10 +17,11 @@ pipeSouth.src = "images/pipeSouth.png";
 // Load sounds
 const fly = new Audio();
 const scoreSound = new Audio();
+const overSound = new Audio();
 
 fly.src = "sounds/fly.mp3";
 scoreSound.src = "sounds/score.mp3";
-
+overSound.src = "sounds/gameover.mp3";
 // Variables
 let gap = 120;  
 let constant;
@@ -128,6 +129,8 @@ function draw() {
         }
         ctx.fillStyle = "#FFF";
         ctx.font = "30px Verdana";
+        overSound.play();
+     
         ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - 20);
         ctx.fillText("Tap to Restart", canvas.width / 2, canvas.height / 2 + 20);
     }
