@@ -204,7 +204,7 @@ function resetPipes() {
     y: Math.floor(Math.random() * (canvas.height - fg.height - gap - minGap)) - pipeNorth.height,
     scored: false 
   });
-  console.log('Initial pipe:', pipe[0]); // Log initial pipe
+  // console.log('Initial pipe:', pipe[0]); // Log initial pipe
 }
 
 function generatePipe() {
@@ -216,7 +216,7 @@ function generatePipe() {
       y: newY,
       scored: false
     });
-    console.log('New pipe:', { x: canvas.width, y: newY }); 
+    // console.log('New pipe:', { x: canvas.width, y: newY }); 
   }
 }
 
