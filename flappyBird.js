@@ -44,6 +44,12 @@ resetPipes();
 let gameState = 'start';
 let lastPipeTime = 0;
 
+// Initial pipe movement speed and speed increment parameters
+let pipeMovementSpeed = 1.5; // Initial speed
+const maxPipeSpeed = 10; // Maximum speed
+const speedIncrementInterval = 8000; // Interval in milliseconds to increase speed
+let lastSpeedIncreaseTime = Date.now();
+
 function resizeCanvas() {
   const aspectRatio = window.innerWidth / window.innerHeight;
   if (aspectRatio > 1) {
@@ -58,8 +64,8 @@ function resizeCanvas() {
     gap = 230; // Adjust gap for portrait
   }
 
-  const speedModifier = aspectRatio > 1 ? 1.5 : 2; // Adjust speed based on aspect ratio
-  pipeMovementSpeed = (canvas.width > canvas.height ? 4 : 2) * speedModifier;
+  const speedModifier = aspectRatio > 1 ? 1.1 : 1.4;
+  pipeMovementSpeed = 2 * speedModifier; // Reset initial speed based on aspect ratio
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
@@ -78,7 +84,6 @@ function moveUp() {
     playSound.play();
     draw();
   } else if (gameState === 'gameover') {
-
     resetGame();
     gameState = 'play';
     draw();
@@ -123,10 +128,8 @@ function draw() {
     const birdCenterX = bX + birdWidth / 2;
     if (birdCenterX > pipeCenterX && !pipe[i].scored) {
       score++;
-     
       pipe[i].scored = true;
       scoreSound.play();
-    
     }
 
     // Remove pipes that are out of view
@@ -146,6 +149,12 @@ function draw() {
   ctx.textAlign = "center";
   ctx.fillText("Score: " + score, canvas.width / 2, 30);
   ctx.fillText("Best Score: " + bestScore, canvas.width / 2, 60);
+
+  // Increase pipe speed periodically
+  if (currentTime - lastSpeedIncreaseTime > speedIncrementInterval && pipeMovementSpeed < maxPipeSpeed) {
+    pipeMovementSpeed++; // Increment speed
+    lastSpeedIncreaseTime = currentTime; // Update last speed increase time
+  }
 
   if (gameState !== 'gameover') {
     requestAnimationFrame(draw);
