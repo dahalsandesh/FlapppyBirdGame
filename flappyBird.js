@@ -152,7 +152,7 @@ function draw() {
 
   // Increase pipe speed periodically
   if (currentTime - lastSpeedIncreaseTime > speedIncrementInterval && pipeMovementSpeed < maxPipeSpeed) {
-    pipeMovementSpeed++; // Increment speed
+    pipeMovementSpeed + 0.4; // Increment speed
     lastSpeedIncreaseTime = currentTime; // Update last speed increase time
   }
 
@@ -195,6 +195,7 @@ function resetGame() {
   gameState = 'start';
   lastPipeTime = 0; // Reset last pipe spawn time
   displayStartScreen();
+  resizeCanvas();
 }
 
 function resetPipes() {
