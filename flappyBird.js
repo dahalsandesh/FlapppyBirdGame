@@ -152,7 +152,7 @@ function draw() {
 
   // Increase pipe speed periodically
   if (currentTime - lastSpeedIncreaseTime > speedIncrementInterval && pipeMovementSpeed < maxPipeSpeed) {
-    pipeMovementSpeed + 0.4; // Increment speed
+    pipeMovementSpeed + 0.6; // Increment speed
     lastSpeedIncreaseTime = currentTime; // Update last speed increase time
   }
 
