@@ -18,7 +18,7 @@ body {
     color: goldenrod;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     margin-bottom: 5px;
-    margin-top: 0px;
+    margin-top: -40px;
 }
 
 .subtitle {
