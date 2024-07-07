@@ -56,12 +56,12 @@ function resizeCanvas() {
     // Landscape
     canvas.width = window.innerWidth * 0.7;
     canvas.height = window.innerHeight * 0.7;
-    gap = 200; 
+    gap = 190; 
   } else {
     // Portrait
     canvas.width = window.innerWidth * 0.8;
     canvas.height = window.innerHeight * 0.7;
-    gap = 230; // Adjust gap for portrait
+    gap = 180; // Adjust gap for portrait
   }
 
   const speedModifier = aspectRatio > 1 ? 1.1 : 1.4;
