@@ -47,7 +47,7 @@ let lastPipeTime = 0;
 // Initial pipe movement speed and speed increment parameters
 let pipeMovementSpeed = 1.5; // Initial speed
 const maxPipeSpeed = 10; // Maximum speed
-const speedIncrementInterval = 8000; // Interval in milliseconds to increase speed
+const speedIncrementInterval = 4000; // Interval in milliseconds to increase speed
 let lastSpeedIncreaseTime = Date.now();
 
 function resizeCanvas() {
